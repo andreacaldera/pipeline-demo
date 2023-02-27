@@ -1,0 +1,28 @@
+name: 'Demo action'
+description: 'Demo action'
+
+
+inputs:
+  randomTime:
+    description: The maximum time
+    required: true
+  randomSuccessRate:
+    description: The random success rate between 1 and 10
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Demo action
+      
+      shell: bash
+      run: |
+        time=$(( $RANDOM % ${{ inputs.randomTime }} ))
+        successRate=$(( $RANDOM % ${{ inputs.successRate }} ))
+        echo "Demo action using random time ${time} and success rate ${successRate}"
+        sleep $time
+
+        if [ "$successRate" -lt "${{ inputs.randomSuccessRate }}" ]; then
+          echo "Demo action is randomly failing time ${successRate} vs ${{ inputs.randomSuccessRate }}"
+          exit 1
+        fi
