@@ -18,7 +18,7 @@ runs:
       shell: bash
       run: |
         time=$(( $RANDOM % ${{ inputs.randomTime }} ))
-        successRate=$(( $RANDOM % ${{ inputs.successRate }} ))
+        successRate=$(( $RANDOM % ${{ inputs.randomSuccessRate }} ))
         echo "Demo action using random time ${time} and success rate ${successRate}"
         sleep $time
 
