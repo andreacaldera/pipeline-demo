@@ -6,7 +6,7 @@ inputs:
   randomTime:
     description: The maximum time
     required: true
-  randomSuccessRate:
+  successRate:
     description: The random success rate between 1 and 10
     required: true
 
@@ -17,15 +17,15 @@ runs:
       
       shell: bash
       run: |
-        echo "Random action using random time ${{ inputs.randomTime }} and random success rate ${{ inputs.randomSuccessRate }}"
+        echo "Random action using inputs time ${{ inputs.randomTime }} and success rate ${{ inputs.successRate }}"
         time=$(( $RANDOM % ${{ inputs.randomTime }} ))
-        successRate=$(( $RANDOM % ${{ inputs.randomSuccessRate }} ))
-        echo "Demo action using random time ${time} and success rate ${successRate}"
+        randomSuccessRate=$(( $RANDOM % 10 ))
+        echo "Demo action using random time ${time} and random success rate ${randomSuccessRate}"
         sleep $time
 
-        echo "Comparing success rate ${successRate} with random success rate ${{ inputs.randomSuccessRate }}"
+        echo "Comparing random success rate ${randomSuccessRate} with input success rate ${{ inputs.successRate }}"
 
-        if [ $successRate -gt ${{ inputs.randomSuccessRate }} ]; then
-          echo "Demo action is randomly failing time ${successRate} and ${{ inputs.randomSuccessRate }}"
+        if [ $randomSuccessRate -gt "${{ inputs.successRate }}" ]; then
+          echo "Demo action is randomly failing time ${successRate} and ${{ inputs.successRate }}"  
           exit 1
         fi
