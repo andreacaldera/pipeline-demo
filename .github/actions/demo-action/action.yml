@@ -17,12 +17,13 @@ runs:
       
       shell: bash
       run: |
+        echo "Random action using random time ${{ inputs.randomTime }} and random success rate ${{ inputs.randomSuccessRate }}"
         time=$(( $RANDOM % ${{ inputs.randomTime }} ))
         successRate=$(( $RANDOM % ${{ inputs.randomSuccessRate }} ))
         echo "Demo action using random time ${time} and success rate ${successRate}"
         sleep $time
 
         if [ $successRate -lt ${{ inputs.randomSuccessRate }} ]; then
-          echo "Demo action is randomly failing time ${successRate} vs ${{ inputs.randomSuccessRate }}"
+          echo "Demo action is randomly failing time ${successRate} and ${{ inputs.randomSuccessRate }}"
           exit 1
         fi
