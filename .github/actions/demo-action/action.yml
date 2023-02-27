@@ -23,7 +23,7 @@ runs:
         echo "Demo action using random time ${time} and success rate ${successRate}"
         sleep $time
 
-        if [ $successRate -lt ${{ inputs.randomSuccessRate }} ]; then
+        if [ $successRate -gt ${{ inputs.randomSuccessRate }} ]; then
           echo "Demo action is randomly failing time ${successRate} and ${{ inputs.randomSuccessRate }}"
           exit 1
         fi
