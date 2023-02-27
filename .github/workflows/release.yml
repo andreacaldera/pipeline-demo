@@ -27,7 +27,7 @@ jobs:
       - uses: ./.github/actions/demo-action
         with: 
           randomTime: 100
-          randomSuccessRate: 7
+          successRate: 7
 
   release:
     name: Release
@@ -38,4 +38,4 @@ jobs:
       - uses: ./.github/actions/demo-action
         with: 
           randomTime: 300
-          randomSuccessRate: 5        
+          successRate: 5        
