@@ -1,4 +1,4 @@
-name: PR demo
+name: Release demo
 
 on:
   workflow_dispatch:
@@ -29,8 +29,8 @@ jobs:
           randomTime: 100
           randomSuccessRate: 7
 
-  pr-deploy:
-    name: PR deploy
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.1.0
@@ -38,4 +38,4 @@ jobs:
       - uses: ./.github/actions/demo-action
         with: 
           randomTime: 300
-          randomSuccessRate: 5
+          randomSuccessRate: 5        
