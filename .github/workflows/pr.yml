@@ -12,8 +12,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - run: pnpm install
-      - run: pnpm test
+
+      - uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 7.28.0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: pnpm
+
+      - name: Install dependencies
+        shell: bash
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
   code-quality:
     name: Code quality
