@@ -26,12 +26,19 @@ jobs:
         shell: bash
         run: pnpm install --frozen-lockfile --ignore-scripts
 
+      - run: pnpm test
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: junit test report
+          path: junit.xml
+
   code-quality:
     name: Code quality
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        job: ["lint", "unit tests", "typescript checks", "e2e tests"]
+        job: ["lint", "typescript checks", "e2e tests"]
     steps:
       - uses: actions/checkout@v3
 
