@@ -1,0 +1,17 @@
+{
+  "name": "pipeline-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "jest-junit": "^15.0.0",
+    "ts-node": "^10.9.1"
+  }
+}
