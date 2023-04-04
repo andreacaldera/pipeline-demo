@@ -66,5 +66,5 @@ jobs:
 
       - uses: ./.github/actions/demo-action
         with:
-          randomTime: 300
+          randomTime: 100
           successRate: 5
