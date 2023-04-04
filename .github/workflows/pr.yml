@@ -34,14 +34,6 @@ jobs:
           name: junit test report
           path: junit.xml
 
-      - name: Handle test failure
-        if: ${{ failure() }}
-        shell: bash
-        run: |
-          set -x
-          echo "Unit test failed on previous step, returing error"
-          exit 1
-
   code-quality:
     name: Code quality
     runs-on: ubuntu-latest
