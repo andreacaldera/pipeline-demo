@@ -3,7 +3,7 @@ name: PR demo
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */2 * * *"
+    - cron: "0 */3 * * *"
 
 jobs:
   unit-test:
